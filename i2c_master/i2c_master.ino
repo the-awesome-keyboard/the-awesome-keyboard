@@ -22,7 +22,7 @@ void setup() {
 
 void loop() {
   readAndPrintValue(1);
-  readAndPrintValue(1)
+  readAndPrintValue(1);
 
   delay(500);
 }
