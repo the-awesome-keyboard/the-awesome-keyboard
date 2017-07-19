@@ -13,6 +13,7 @@
 #include <Wire.h>
 
 const int BOARD_ID = 1;
+const int BYTES_TO_READ = 6;
 
 void setup() {
   Wire.begin();        // join i2c bus (address optional for master)
@@ -20,12 +21,18 @@ void setup() {
 }
 
 void loop() {
-  Wire.requestFrom(BOARD_ID, 1);    // request 6 bytes from slave device #8
+  readAndPrintValue(1);
+  readAndPrintValue(1)
+
+  delay(500);
+}
+
+void readAndPrintValue(int boardId) {
+  Wire.requestFrom(boardId, BYTES_TO_READ);    // request 6 bytes from slave device #8
 
   while (Wire.available()) { // slave may send less than requested
     char c = Wire.read(); // receive a byte as character
     Serial.print(c);         // print the character
   }
-
-  delay(100);
 }
+
