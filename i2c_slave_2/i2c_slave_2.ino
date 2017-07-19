@@ -12,32 +12,20 @@
 
 #include <Wire.h>
 
-const int MY_ID = 1;
-const int BUTTON_PIN = 8; 
-int buttonState = 0;
-char value = '_';
+const int MY_ID = 2;
 
 void setup() {
   Wire.begin(MY_ID);                // join i2c bus with address #8
-  Wire.onRequest(requestEvent); // register event
-
-  pinMode(BUTTON_PIN, INPUT);
+  Wire.onRequest(requestEvent); // register event  
 }
 
 void loop() {
-  // read the state of the pushbutton value:
-  buttonState = digitalRead(BUTTON_PIN);
-
-  if (buttonState == HIGH) {
-    value = 'a';
-  } else {
-    value = '_';
-  }
+  delay(100);
 }
 
 // function that executes whenever data is requested by master
 // this function is registered as an event, see setup()
 void requestEvent() {
-  Wire.write(value); // respond with message of 6 bytes
+  Wire.write("World!"); // respond with message of 6 bytes
   // as expected by master
 }
