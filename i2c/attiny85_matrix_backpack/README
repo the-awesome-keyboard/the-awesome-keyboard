@@ -1,0 +1,1 @@
+Initial code from [Trinket / Gemma Space Invader Pendant](https://learn.adafruit.com/trinket-slash-gemma-space-invader-pendant/source-code), refactored to use the [TinyWireM](https://github.com/adafruit/TinyWireM) library.
